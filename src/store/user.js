@@ -9,7 +9,7 @@ const user = {
     msg: '',
     returnText: '',
     returnUrl: '',
-    baseUrl: 'http://58.119.112.12:8086/sdc',
+    baseUrl: 'http://www.zhiheyikaoqin.cn/show/sdc/sdc/',
     openid: '',
     isRegAuth: false, // 是否授权过，用来控制注册时的跳转
     isReg: true, // 用来控制是否要调注册,
@@ -64,7 +64,7 @@ const user = {
   actions: {
     getInfo ({ commit }) {
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/user/queryUserInfo?openid=' + this.state.user.openid,
+        url: 'user/queryUserInfo?openid=' + this.state.user.openid,
         method: 'get'
       }).then(res => {
         console.log(res.data.code)

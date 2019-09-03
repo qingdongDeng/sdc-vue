@@ -19,7 +19,8 @@ export default {
     },
     getAll () {
       request({
-        url: 'http://58.119.112.12:8086/stu/findAllCourse',
+        // url: 'http://58.119.112.12:8086/stu/findAllCourse',
+        url: 'stu/findAllCourse',
         data: {
           page: 1,
           size: 10

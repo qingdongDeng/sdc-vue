@@ -83,7 +83,7 @@
       },
       _book (item) {
         request({
-          url: 'http://www.zhiheyikaoqin.cn/sdc/stu/order?stuOpenid=' + this.openid + '&courserId=' + item.teaCourse.courseId,
+          url: 'stu/order?stuOpenid=' + this.openid + '&courserId=' + item.teaCourse.courseId,
           method: 'get'
         }).then(res => {
           if (res.data.code !== 0) {

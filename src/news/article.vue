@@ -65,7 +65,7 @@ export default {
     getDetail () {
       this.loading = true
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/article/getArticleContent',
+        url: 'article/getArticleContent',
         method: 'post',
         data: {
           artId: this.$route.params.id,
@@ -95,7 +95,7 @@ export default {
     },
     initScore () {
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/article/getArticleScore?openid=' + this.$store.state.user.openid + '&artId=' + this.$route.params.id,
+        url: 'article/getArticleScore?openid=' + this.$store.state.user.openid + '&artId=' + this.$route.params.id,
         method: 'get'
       }).then(res => {
         if (res.data.data !== undefined && res.data.data !== null && res.data.data.scoreId !== undefined) {
@@ -119,7 +119,7 @@ export default {
       this.score = score
       console.log('sate', score, item)
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/article/putScore?openid=' + this.$store.state.user.openid + '&artId=' + this.$route.params.id + '&score=' + score,
+        url: 'article/putScore?openid=' + this.$store.state.user.openid + '&artId=' + this.$route.params.id + '&score=' + score,
         method: 'get'
       }).then(res => {
         if (res.data.code === 0) {

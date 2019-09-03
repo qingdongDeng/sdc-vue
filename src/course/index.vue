@@ -78,7 +78,7 @@ export default {
     },
     getAll () {
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/stu/findAllCourse?page=1&size=100',
+        url: 'stu/findAllCourse?page=1&size=100',
         method: 'GET'
       }).then(res => {
         this.loading = false

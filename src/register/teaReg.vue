@@ -93,7 +93,7 @@ export default {
         return
       }
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/user/registerTeaBaseByOpenid',
+        url: 'user/registerTeaBaseByOpenid',
         method: 'post',
         data: {
           teaOpenid: this.openid,

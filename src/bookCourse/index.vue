@@ -206,10 +206,10 @@ export default {
       }
       let url = ''
       if (this.userType === 'teacher') {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/tea/findTeaHistoryCourse'
+        url = 'tea/findTeaHistoryCourse'
         url += '?teaOpenid=' + this.teaOpenid + '&page=1&pageSize=1000'
       } else if (this.userType === 'student') {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/stu/lookHistory'
+        url = 'stu/lookHistory'
         url += '?stuOpenid=' + this.stuOpenid + '&page=1&pageSize=1000'
       }
       request({

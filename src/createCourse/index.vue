@@ -89,7 +89,7 @@ export default {
       const tmpEnd = this.formObj.course_date + ' ' + this.formObj.courseEndTime + ':00'
       const tmpInt = this.formObj.courseInteractive ? 0 : 1
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/tea/createCourse',
+        url: 'tea/createCourse',
         method: 'post',
         data: {
           teaCode: this.teaCode, // 是 string  教师编号

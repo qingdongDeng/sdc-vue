@@ -117,7 +117,7 @@ export default {
         return
       }
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/user/registerStuBaseByOpenid',
+        url: 'user/registerStuBaseByOpenid',
         method: 'post',
         data: {
           stuOpenid: this.openid,

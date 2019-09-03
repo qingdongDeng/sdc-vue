@@ -56,7 +56,7 @@ updateFeed<template>
         let url = ''
         let req = {}
         if (this.userType === 'teacher') {
-          url = 'http://www.zhiheyikaoqin.cn/sdc/tea/createFeedBack'
+          url = 'tea/createFeedBack'
           req = {
             subId: this.item.feedBack.subId, // 是 int 预约编号
             teaFeedBack: this.feedText, // 是 string  反馈内容
@@ -64,7 +64,7 @@ updateFeed<template>
             teaOpenid: this.teaOpenid
           }
         } else {
-          url = 'http://www.zhiheyikaoqin.cn/sdc/stu/feedback'
+          url = 'stu/feedback'
           req = {
             courserId: this.item.courseId, // 是 int 课程id
             message: this.feedText, // 是 string  反馈信息

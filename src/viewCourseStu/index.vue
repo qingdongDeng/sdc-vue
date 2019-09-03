@@ -38,6 +38,8 @@ export default {
   data () {
     return {
       loading: false,
+      selTrue: false,
+      selFail: false,
       stuList: [],
       hasSel: false,
       selStuId: '',
@@ -63,10 +65,11 @@ export default {
   },
   methods: {
     _getStu () {
+      // console.log('状态：', this.selTrue)
       this.hasSel = false
       this.selStuId = ''
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/tea/findCandidatesByCourseId?courseId=' + this.courseId + '&teaOpenid=' + this.teaOpenid,
+        url: 'tea/findCandidatesByCourseId?courseId=' + this.courseId + '&teaOpenid=' + this.teaOpenid,
         method: 'get'
       }).then(res => {
         this.loading = false
@@ -101,7 +104,8 @@ export default {
     },
     selStu (item) {
       const _this = this
-      console.log(item)
+      console.log('lele:', item)
+      console.log(this.stuList)
       if (this.selStuId === item.stuOpenid) {
         return
       }
@@ -125,7 +129,7 @@ export default {
     },
     _selAPI (item) {
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/tea/saveSelectedStu',
+        url: 'tea/saveSelectedStu',
         method: 'post',
         data: {
           courseId: this.courseId,

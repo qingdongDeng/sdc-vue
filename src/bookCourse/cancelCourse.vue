@@ -44,14 +44,14 @@ export default {
       let url = ''
       let req = {}
       if (this.userType === 'teacher') {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/tea/cancelCourse'
+        url = 'tea/cancelCourse'
         req = {
           cancelReason: this.cancelText,
           courseId: this.courseId,
           teaOpenid: this.teaOpenid
         }
       } else {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/stu/cancelOrder'
+        url = 'stu/cancelOrder'
         req = {
           cause: this.cancelText,
           courserId: this.courseId,

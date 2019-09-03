@@ -45,4 +45,5 @@ export default {
       padding-right: 0;
     }
   }
+
 </style>

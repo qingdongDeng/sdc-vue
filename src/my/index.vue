@@ -12,7 +12,7 @@
       </div>
     </div>
     <doing></doing>
-    
+    <tips></tips>
   </div>
 </template>
 <script>
@@ -22,9 +22,10 @@ import userInfo from './info'
 import bookMenu from './bookMenu'
 import feedback from './feedback'
 import doing from './doing'
+import tips from './tips'
 export default {
   name: 'my',
-  components: { createCourse, userInfo, bookMenu, feedback, doing },
+  components: { createCourse, userInfo, bookMenu, feedback, doing, tips },
   data () {
     return {
       a: 's'

@@ -52,7 +52,7 @@ export default {
         return
       }
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/course/getOnClassUserOpenid?courseId=' + this.curCourse.courseId,
+        url: 'course/getOnClassUserOpenid?courseId=' + this.curCourse.courseId,
         method: 'get'
       }).then(res => {
         if (res.data.code === 0) {
@@ -60,7 +60,7 @@ export default {
           this.nowStuCode = res.data.data.stuOpenid
 
           request({
-            url: 'http://www.zhiheyikaoqin.cn/sdc/user/queryUserInfo?openid=' + this.nowTeaCode,
+            url: 'user/queryUserInfo?openid=' + this.nowTeaCode,
             method: 'get'
           }).then(res => {
             // 获取自己头像
@@ -71,7 +71,7 @@ export default {
             }
             // 获取对方头像
             request({
-              url: 'http://www.zhiheyikaoqin.cn/sdc/user/queryUserInfo?openid=' + this.nowStuCode,
+              url: 'user/queryUserInfo?openid=' + this.nowStuCode,
               method: 'get'
             }).then(res => {
               const type = (this.nowTeaCode !== this.openid) ? 'self' : 'other'

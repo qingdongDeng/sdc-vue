@@ -105,7 +105,7 @@ export default {
   methods: {
     getCourseCount () {
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/course/getCountDown?courseId=' + this.courseId,
+        url: 'course/getCountDown?courseId=' + this.courseId,
         method: 'get'
       }).then(res => {
         if (res.data.code === 0) {
@@ -120,7 +120,7 @@ export default {
     },
     checkEnd () {
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/course/onCourseEnd?courseId=' + this.courseId,
+        url: 'course/onCourseEnd?courseId=' + this.courseId,
         method: 'get'
       }).then(res => {
         if (res.data.code === 0) {
@@ -178,10 +178,10 @@ export default {
       this.loading = true
       let url = ''
       if (this.userType === 'teacher') {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/tea/findTeaHistoryCourse'
+        url = 'tea/findTeaHistoryCourse'
         url += '?teaOpenid=' + this.teaOpenid + '&page=1&pageSize=1000'
       } else if (this.userType === 'student') {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/stu/lookHistory'
+        url = 'stu/lookHistory'
         url += '?stuOpenid=' + this.stuOpenid + '&page=1&pageSize=1000'
       }
       request({
@@ -229,6 +229,7 @@ export default {
   @import '../styles/color.scss';
   .doing-course {
     padding-bottom: 50px;
+    margin-bottom: 10px;
   }
   .course-info {
     line-height: 2;
@@ -277,7 +278,7 @@ export default {
       max-width: 100%;
       word-break: break-all;
       text-align: left;
-    } 
+    }
     &.msg-self {
       .user-icon {
         right: 0;
@@ -294,7 +295,7 @@ export default {
       .msg-content {
         padding-left: 50px;
       }
-    } 
+    }
   }
   .send-msg {
     position: fixed;
@@ -310,7 +311,7 @@ export default {
       height: 40px;
       position: relative;
     }
-    input { 
+    input {
       height: 40px;
       width: calc(100% - 80px);
       font-size: 16px;

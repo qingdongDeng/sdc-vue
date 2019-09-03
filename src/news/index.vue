@@ -120,7 +120,7 @@ export default {
         this.loading = true
       }
       request({
-        url: 'http://www.zhiheyikaoqin.cn/sdc/article/getArticleList',
+        url: 'article/getArticleList',
         method: 'post',
         data: {
           openid: this.openid,
@@ -167,11 +167,11 @@ export default {
 }
 .news-menu {
   position: absolute;
-  top: 0;    
+  top: 0;
   width: 100%;
   background: #fff;
   z-index: 4;
-  padding: 0 10px;    
+  padding: 0 10px;
   border-bottom: 2px solid #fbf9fe;
   .news-menu-item {
     list-style: none;
@@ -192,7 +192,7 @@ export default {
     min-height: 80px;
     padding-right: 120px;
     .img {
-      position: absolute; 
+      position: absolute;
       width: 80px;
       height: 80px;
       right: 20px;
@@ -211,5 +211,5 @@ export default {
   .time {
     color: #aaa;
   }
-}  
+}
 </style>

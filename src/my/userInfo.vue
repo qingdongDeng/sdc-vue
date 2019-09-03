@@ -69,9 +69,9 @@ export default {
       let url = ''
       let req = {}
       if (this.userType === 'teacher') {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/user/deleteTeaByOpenid?teaOpenid=' + this.teaOpenid
+        url = 'user/deleteTeaByOpenid?teaOpenid=' + this.teaOpenid
       } else {
-        url = 'http://www.zhiheyikaoqin.cn/sdc/user/deleteStuByOpenid?stuOpenid=' + this.stuOpenid
+        url = 'user/deleteStuByOpenid?stuOpenid=' + this.stuOpenid
       }
       console.log(url, req)
       request({

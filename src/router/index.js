@@ -19,6 +19,8 @@ const viewCourseStu = () => import('@/viewCourseStu/index')
 const register = () => import('@/register/index')
 const selRegType = () => import('@/register/selType')
 const userInfo = () => import('@/my/userInfo')
+const tofeedback = () => import('@/my/tofeedback')
+const userManual = () => import('@/my/userManual')
 
 export default new Router({
   routes: [
@@ -69,6 +71,24 @@ export default new Router({
       meta: { tab: 'feedback', title: 'feedback' },
       children: [
         {path: '/feedback', name: 'feedback', component: feedback, meta: { title: 'feedback' }}
+      ]
+    },
+    {
+      path: '/tofeedback',
+      component: returnLayout,
+      name: 'tofeedback',
+      meta: { tab: 'tofeedback', title: 'tofeedback' },
+      children: [
+        {path: '/tofeedback', name: 'tofeedback', component: tofeedback, meta: { title: 'tofeedback' }}
+      ]
+    },
+    {
+      path: '/userManual',
+      component: returnLayout,
+      name: 'userManual',
+      meta: { tab: 'userManual', title: 'userManual' },
+      children: [
+        {path: '/userManual', name: 'userManual', component: userManual, meta: { title: 'userManual' }}
       ]
     },
     {
