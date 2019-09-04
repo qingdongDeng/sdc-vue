@@ -6,12 +6,36 @@
     </div>
     <div class="viewstu__body">
       <span class="viewstu__label">学生列表：</span>
-      <panel v-if="!loading && stuList.length !==0" :list="stuList" :type="'5'" @on-click-item="selStu">
-        <template slot="flag" slot-scope="item" >
-          <div class="sel-stu" v-if="item.item.selTrue">已选中</div>
-          <div class="sel-stu sel-fail" v-if="item.item.selFail">预约失败</div>
+      <panel v-if="!loading && stuList.length !==0" >
+        <template slot="body" slot-scope="item">
+<!--          <div>{{item}}</div>-->
+<!--          <div>fefwf</div>-->
+<!--          <div class="sel-stu" v-if="item.item.selTrue">已选中</div>-->
+<!--          <div class="sel-stu sel-fail" v-if="item.item.selFail">预约失败</div>-->
+          <div class="weui-media-box weui-media-box_text" v-for="item in stuList" @click.prevent="selStu(item)">
+            <div class="weui-media-box_appmsg">
+              <div class="weui-media-box__hd" v-if="item.fallbackSrc">
+                <img class="weui-media-box__thumb" @error="onImgError(item, $event)" :src="item.fallbackSrc" alt="">
+              </div>
+              <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title" v-html="item.title"></h4>
+                <p class="weui-media-box__desc" v-html="item.desc"></p>
+                <div class="sel-stu" v-if="item.selTrue">已选中</div>
+                <div class="sel-stu sel-fail" v-if="item.selFail">预约失败</div>
+              </div>
+            </div>
+            <ul class="weui-media-box__info" v-if="item.meta">
+              <li class="weui-media-box__info__meta" v-html="item.meta.source"></li>
+              <li class="weui-media-box__info__meta" v-html="item.meta.date"></li>
+              <li class="weui-media-box__info__meta weui-media-box__info__meta_extra" v-html="item.meta.other"></li>
+            </ul>
+          </div>
         </template>
       </panel>
+<!--      <slot name="flag" v-for="item in stuList" :item="item">-->
+<!--        <div class="sel-stu" v-if="item.selTrue">已选中</div>-->
+<!--        <div class="sel-stu sel-fail" v-if="item.selFail">预约失败</div>-->
+<!--      </slot>-->
       <no-data v-if="!loading && stuList.length ===0" :text="'暂无学生'"></no-data>
     </div>
     <template v-if="loading">
