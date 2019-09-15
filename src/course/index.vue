@@ -20,11 +20,15 @@
               </div>
               <div class="course-date">
                 <i class="iconfont icon-calendar"></i>
-                {{item.teaCourse.courseDate.split(' ')[0]}}
+                <strong style="color: #7cbb5a">{{item.teaCourse.courseDate.split(' ')[0]}} 至 {{item.teaCourse.courseEndDate.split(' ')[0] }}</strong>
               </div>
               <div class="course-time">
                 <i class="iconfont icon-shijian1"></i>
-                {{item.teaCourse.time}}
+                共<strong>{{item.teaCourse.allPeriods}}</strong>课时
+              </div>
+              <div class="course-time">
+                <i class="iconfont icon-shijian1"></i>
+                每周<strong style="color: #7cbb5a">{{item.teaCourse.dayOfWeek}} {{item.teaCourse.time}}</strong>
               </div>
               <div class="course-time">
                 <template v-if="Number(item.teaCourse.courseInteractive) === 0">

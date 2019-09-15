@@ -104,7 +104,9 @@ export default {
         this.stuList = res.data.data.filter(item => {
           return item.stuBase !== null
         }).map(item => {
+          console.log(item.subStatus)
           if (item.subStatus === 401) {
+            console.log('aaaaaaaaa')
             this.selStuId = item.stuBase.stuOpenid
           }
           this.hasSel = this.hasSel || (item.subStatus === 401)
@@ -129,7 +131,10 @@ export default {
     selStu (item) {
       const _this = this
       console.log('lele:', item)
-      console.log(this.stuList)
+      console.log(item.selTrue)
+      if (item.selTrue) {
+        return
+      }
       if (this.selStuId === item.stuOpenid) {
         return
       }
@@ -141,7 +146,8 @@ export default {
         this._selAPI(item)
         return
       }
-      this.$vux.confirm.show({
+      _this._selAPI(item)
+      /*this.$vux.confirm.show({
         content: '是否确定重选学生',
         // 组件除show外的属性
         onCancel () {
@@ -149,7 +155,7 @@ export default {
         onConfirm () {
           _this._selAPI(item)
         }
-      })
+      })*/
     },
     _selAPI (item) {
       request({

@@ -6,8 +6,9 @@
       <div class="infos">
         <div class="course-teaName">授课老师：{{item.teaBase.teaName}}</div>
         <div class="course-teaName">老师科目：{{item.teaBase.teaSubject}}</div>
-        <div class="course-date">上课日期：{{item.teaCourse.courseDate.split(' ')[0]}}</div>
-        <div class="course-time">上课时间：{{item.teaCourse.time}}</div>
+        <div class="course-date">上课日期：<strong style="color: #7cbb5a">{{item.teaCourse.courseDate.split(' ')[0]}} 至 {{item.teaCourse.courseEndDate.split(' ')[0] }}</strong></div>
+        <div class="course-time">上课时间：每周<strong style="color: #7cbb5a">{{item.teaCourse.dayOfWeek}} {{item.teaCourse.time}}</strong></div>
+        <div class="course-time">课时数：共<strong>{{item.teaCourse.allPeriods}}</strong>课时</div>
         <div class="course-type">上课方式：{{item.teaCourse.courseInteractive === 0 ? '线上' : '线下'}}</div>
         <div class="course-type" v-if="item.teaCourse.courseInteractive === 1">上课地点：{{item.teaCourse.courseLocation || '暂无'}}</div>
       </div>

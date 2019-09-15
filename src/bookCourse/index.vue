@@ -32,14 +32,17 @@
             </template>
           </div>
           <div class="course__start">
+            <i class="iconfont icon-calendar"></i>
+            起止日期:
+            <strong style="color: #7cbb5a">{{item.teaCourse.courseStartTime.split(' ')[0]}} 至 {{item.teaCourse.courseEndTime.split(' ')[0]}}</strong>
+          </div>
+          <div class="course-time">
             <i class="iconfont icon-shijian1"></i>
-            开始时间:
-            {{item.teaCourse.courseStartTime}}
+            共<strong>{{item.teaCourse.allPeriods}}</strong>课时
           </div>
           <div class="course__end">
             <i class="iconfont icon-shijian1"></i>
-            结束时间:
-            {{item.teaCourse.courseEndTime}}
+            每周<strong style="color: #7cbb5a">{{item.teaCourse.dayOfWeek}} {{item.teaCourse.courseStartTime.split(' ')[1]}} - {{item.teaCourse.courseEndTime.split(' ')[1]}}</strong>
           </div>
         </div>
         <div class="course__operate" v-if="userType === 'teacher' && item.teaCourse.courseStatus !== 304">
