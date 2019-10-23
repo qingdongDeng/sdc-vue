@@ -12,7 +12,7 @@
 <!--          <div>fefwf</div>-->
 <!--          <div class="sel-stu" v-if="item.item.selTrue">已选中</div>-->
 <!--          <div class="sel-stu sel-fail" v-if="item.item.selFail">预约失败</div>-->
-          <div class="weui-media-box weui-media-box_text" v-for="item in stuList" @click.prevent="selStu(item)">
+          <div class="weui-media-box weui-media-box_text" v-for="item in stuList" @click.prevent="confirmStatus(item)">
             <div class="weui-media-box_appmsg">
               <div class="weui-media-box__hd" v-if="item.fallbackSrc">
                 <img class="weui-media-box__thumb" @error="onImgError(item, $event)" :src="item.fallbackSrc" alt="">
@@ -29,6 +29,12 @@
               <li class="weui-media-box__info__meta" v-html="item.meta.date"></li>
               <li class="weui-media-box__info__meta weui-media-box__info__meta_extra" v-html="item.meta.other"></li>
             </ul>
+
+            <confirm v-model= "flagShowSelectStu"
+                     @on-confirm="selStu(item)">
+              <p style="text-align:center;">您是否要选择姓名为 <strong>{{item.title}}</strong> ,并且年级是<strong>{{item.desc}}</strong>的学生?</p>
+            </confirm>
+
           </div>
         </template>
       </panel>
@@ -37,6 +43,8 @@
 <!--        <div class="sel-stu sel-fail" v-if="item.selFail">预约失败</div>-->
 <!--      </slot>-->
       <no-data v-if="!loading && stuList.length ===0" :text="'暂无学生'"></no-data>
+      <!-- 教师选择成功预约候选学生 -->
+
     </div>
     <template v-if="loading">
       <loading></loading>
@@ -48,7 +56,7 @@ import request from '../utils/request'
 import { msg, errorMsg } from '../utils/common'
 
 import { mapState } from 'vuex'
-import { Panel } from 'vux'
+import { Panel, Confirm } from 'vux'
 import noData from '../components/noData'
 import loading from '../components/loading'
 
@@ -57,7 +65,8 @@ export default {
   components: {
     Panel,
     noData,
-    loading
+    loading,
+    Confirm
   },
   data () {
     return {
@@ -67,6 +76,7 @@ export default {
       stuList: [],
       hasSel: false,
       selStuId: '',
+      flagShowSelectStu: false,
       panelList: [{
         title: '钉钉',
         desc: '是打发斯蒂芬',
@@ -88,6 +98,13 @@ export default {
     this._getStu()
   },
   methods: {
+    confirmStatus (item) {
+      if (!item.selTrue) {
+        if (!item.selTrue) {
+          this.flagShowSelectStu = true
+        }
+      }
+    },
     _getStu () {
       // console.log('状态：', this.selTrue)
       this.hasSel = false
@@ -128,6 +145,37 @@ export default {
         })
       })
     },
+   /** confirmSelectStu () {
+      const tmpDate = this.formObj.course_date // + ' 00:00:00'
+      const tmpStart = this.formObj.course_date + ' ' + this.formObj.courseStartTime + ':00'
+      const tmpEnd = this.formObj.course_date + ' ' + this.formObj.courseEndTime + ':00'
+      const tmpInt = this.formObj.courseInteractive ? 0 : 1
+      request({
+        url: 'tea/createCourse',
+        method: 'post',
+        data: {
+          teaCode: this.teaCode, // 是 string  教师编号
+          teaOpenid: this.teaOpenid, // 是 string  教师微信编号
+          courseType: this.formObj.courseType, // 课程类型
+          courseName: this.formObj.courseName, //  是 string  课程名称
+          courseDate: tmpDate, // 是 date  课程日期
+          courseStartTime: tmpStart, // 是 date  课程开始时间
+          courseEndTime: tmpEnd, // 是 date  课程结束时间
+          courseInteractive: tmpInt, // 是 int 是否在线互动：0为线上互动，1为线下互动
+          courseLocation: this.formObj.courseLocation, // 取决于是否在线 string 如果教师选择线下互动（courseInteractive=1），那么需要填上线下互动地点，否则可以不填该项
+          allPeriods: this.formObj.allPeriods // 课时数量
+        }
+      }).then(res => {
+        if (res.data.code !== 0) {
+          errorMsg(this, res.data.msg, '120px')
+        } else {
+          msg(this, '新建成功')
+          setTimeout(() => {
+            this.$router.go(-1)
+          }, 500)
+        }
+      })
+    },*/
     selStu (item) {
       const _this = this
       console.log('lele:', item)

@@ -33,8 +33,8 @@ export default {
 
       const role = (type === 'student') ? '1' : '2' // 角色 ，学生为1，教师为2
       // this.$router.push({ name: 'register' })
-      location.href = 'http://www.zxsdc.top/sdc/sdc/wechat/authorize?returnUrl=index.html&role=' + role + '&path=register'
-      // http://www.zhiheyikaoqin.cn/sdc/sdc/wechat/authorize?returnUrl=sdc/index.html&role=' + role + '&path=register'
+      location.href = 'http://www.zxsdc.top/show/sdc/sdc/wechat/authorize?returnUrl=index.html&role=' + role + '&path=register'
+      // location.href = 'http://localhost:8086/sdc/sdc/wechat/authorize?returnUrl=sdc/index.html&role=' + role + '&path=register'
     }
   }
 }

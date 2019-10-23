@@ -83,6 +83,7 @@ export default {
         course_date: '', // 课程日期
         courseStartTime: '', // 课程开始时间
         courseEndTime: '', // 课程结束时间
+        courseEndDate: '', // 课程结束日期
         courseInteractive: false, // 是否在线互动：0为线上互动，1为线下互动
         courseLocation: '', // 取决于是否在线 string  如果教师选择线下互动（courseInteractive=1），那么需要填上线下互动地点，否则可以不填该项
         allPeriods: '' // 课时数量
