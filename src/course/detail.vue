@@ -49,6 +49,7 @@
         userType: state => state.user.userType
       }),
       needBook () {
+        console.log('sdfdsfdsf', this.isRegAuth, this.isReg)
         if (this.isRegAuth && this.isReg) {
           if (this.userType === 'student') {
             return true
@@ -56,7 +57,7 @@
             return false
           }
         } else {
-          return true
+          return false
         }
       }
     },
@@ -71,13 +72,18 @@
         this.show = false
       },
       book (item) {
+        console.log(this.isReg)
+        console.log('1111111111111111111')
         if (!this.isRegAuth) {
+          console.log('授权~~~')
           // 没授权过
           this.$router.push({ name: 'selRegType' })
         } else if (!this.isReg) {
           // 没注册过
+          console.log('来了没？？？？？？？？？？？？  ')
           this.$router.push({ name: 'register' })
         } else {
+          console.log('quan')
           // 信息都全，往下
           this._book(item)
         }

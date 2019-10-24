@@ -103,12 +103,13 @@ export default {
     reg () {
       this.isValid = false
       this.checkValid('stuCode')
+      console.log(this.isValid)
       this.checkValid('stuName')
       this.checkValid('stuLevel')
       this.checkValid('stuGrade')
       this.checkValid('stuClass')
       this.checkValid('stuPasswd')
-      if (this.isValid) {
+      if (!this.isValid) {
         this.$vux.toast.show({
           text: '信息不能为空',
           type: 'cancel',

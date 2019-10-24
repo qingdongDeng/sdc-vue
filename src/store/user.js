@@ -13,7 +13,7 @@ const user = {
     // baseUrl: 'http://localhost:8086/sdc/',
     openid: '',
     isRegAuth: false, // 是否授权过，用来控制注册时的跳转
-    isReg: true, // 用来控制是否要调注册,
+    isReg: false, // 用来控制是否要调注册,
     hasInfo: false,
     infoObj: {}
   },
@@ -83,7 +83,7 @@ const user = {
             // 有过头像，获取过授权
             commit('SET_REG_AUTH', true)
 
-            if (obj.stuCode !== undefined && obj.stuCode !== null) {
+            if (obj.stuCode !== undefined && obj.stuCode !== null && obj.stuCode !== '' && obj.stuCode.length !== 28) {
               // 注册过
               commit('SET_REG_STATUS', true)
               if (obj.stuName !== null && obj.stuName !== '') {
@@ -91,7 +91,7 @@ const user = {
               } else {
                 commit('SET_REG_INFO', false)
               }
-            } else if (obj.teaCode !== undefined && obj.teaCode !== null) {
+            } else if (obj.teaCode !== undefined && obj.teaCode !== null && obj.stuCode !== '' && obj.stuCode.length !== 28) {
               // 注册过
               commit('SET_REG_STATUS', true)
               if (obj.teaName !== null && obj.teaName !== '') {

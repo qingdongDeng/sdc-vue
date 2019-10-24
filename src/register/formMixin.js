@@ -21,7 +21,9 @@ export default {
       this.pwdVis = flag
     },
     checkValid (type) {
-      this.isValid = this.isValid || (this.form[type].trim() === '')
+      if (!this.isValid) {
+        this.isValid = this.isValid || (this.form[type].trim() !== '')
+      }
     }
   }
 }
