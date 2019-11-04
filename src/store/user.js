@@ -9,7 +9,7 @@ const user = {
     msg: '',
     returnText: '',
     returnUrl: '',
-    baseUrl: 'http://www.zxsdc.top/show/sdc/sdc/',
+    baseUrl: 'http://www.zxsdc.top/sdc/sdc/',
     // baseUrl: 'http://localhost:8086/sdc/',
     openid: '',
     isRegAuth: false, // 是否授权过，用来控制注册时的跳转
