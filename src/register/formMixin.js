@@ -21,8 +21,10 @@ export default {
       this.pwdVis = flag
     },
     checkValid (type) {
-      if (!this.isValid) {
-        this.isValid = this.isValid || (this.form[type].trim() !== '')
+      // console.log(type, '为空：', this.form[type].trim() === '')
+      // console.log('验证：', this.isValid)
+      if (this.isValid) {
+        this.isValid = this.isValid && (this.form[type].trim() !== '')
       }
     }
   }

@@ -9,7 +9,7 @@ const user = {
     msg: '',
     returnText: '',
     returnUrl: '',
-    baseUrl: 'http://www.zxsdc.top/sdc/sdc/',
+    baseUrl: '',
     // baseUrl: 'http://localhost:8086/sdc/',
     openid: '',
     isRegAuth: false, // 是否授权过，用来控制注册时的跳转
@@ -91,7 +91,7 @@ const user = {
               } else {
                 commit('SET_REG_INFO', false)
               }
-            } else if (obj.teaCode !== undefined && obj.teaCode !== null && obj.stuCode !== '' && obj.stuCode.length !== 28) {
+            } else if (obj.teaCode !== undefined && obj.teaCode !== null && obj.teaCode !== '' && obj.teaCode.length !== 28) {
               // 注册过
               commit('SET_REG_STATUS', true)
               if (obj.teaName !== null && obj.teaName !== '') {

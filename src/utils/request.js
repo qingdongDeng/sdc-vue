@@ -3,8 +3,7 @@ import qs from 'qs'
 
 // 创建axios实例
 const service = axios.create({
-  baseURL: 'http://www.zxsdc.top/sdc/sdc/', // api的base_url
-  // baseURL: 'http://localhost:8086/sdc/', // api的base_url
+  baseURL: 'https://zhongkeruitong.top/show/sdc/sdc/', // api的base_url
   // port: 80,
   // withCredentials: true,
   timeout: 50000 // 请求超时时间

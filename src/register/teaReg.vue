@@ -75,16 +75,23 @@ export default {
       this.form.teaCode = this.info.teaCode || ''
       this.form.teaName = this.info.teaName || ''
       this.form.teaSubject = this.info.teaSubject || ''
+      console.log('所有信息：', this.form)
     }
   },
   methods: {
     reg () {
-      this.isValid = false
+      // console.log('缇欧交了没')
+      this.isValid = true // 有效的
+      // this.isValid = false
       this.checkValid('teaCode')
+      // console.log('111111111', this.isValid)
       this.checkValid('teaName')
+      // console.log('22222222222', this.isValid)
       this.checkValid('teaSubject')
+      // console.log('33333333333', this.isValid)
       this.checkValid('teaPasswd')
-      if (this.isValid) {
+      // console.log('44444444444', this.isValid)
+      if (!this.isValid) {
         this.$vux.toast.show({
           text: '信息不能为空',
           type: 'cancel',
@@ -92,6 +99,7 @@ export default {
         })
         return
       }
+      console.log('成功老师？')
       request({
         url: 'user/registerTeaBaseByOpenid',
         method: 'post',

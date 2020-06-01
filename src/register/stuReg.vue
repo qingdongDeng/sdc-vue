@@ -101,7 +101,8 @@ export default {
       this.form.stuClass = item[0]
     },
     reg () {
-      this.isValid = false
+      // this.isValid = false
+      this.isValid = true
       this.checkValid('stuCode')
       console.log(this.isValid)
       this.checkValid('stuName')
@@ -117,6 +118,7 @@ export default {
         })
         return
       }
+      console.log('成功学生？')
       request({
         url: 'user/registerStuBaseByOpenid',
         method: 'post',

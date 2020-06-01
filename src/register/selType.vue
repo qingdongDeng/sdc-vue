@@ -32,8 +32,9 @@ export default {
       this.$store.commit('SET_REG_TYPE', type)
 
       const role = (type === 'student') ? '1' : '2' // 角色 ，学生为1，教师为2
+      console.log('学生还是老师：', role)
       // this.$router.push({ name: 'register' })
-      location.href = 'http://www.zxsdc.top/sdc/sdc/wechat/authorize?returnUrl=index.html&role=' + role + '&path=register'
+      location.href = 'https://zhongkeruitong.top/show/sdc/sdc/wechat/authorize?returnUrl=index.html&role=' + role + '&path=register'
       // location.href = 'http://localhost:8086/sdc/sdc/wechat/authorize?returnUrl=sdc/index.html&role=' + role + '&path=register'
     }
   }
